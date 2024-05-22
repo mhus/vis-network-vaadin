@@ -1,1 +1,0 @@
-window.vis = require("vis-network/standalone/umd/vis-network.min.js");

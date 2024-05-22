@@ -104,10 +104,9 @@ import com.vaadin.flow.component.dependency.NpmPackage;
  */
 @SuppressWarnings("serial")
 @Tag("div")
-@JsModule("./vis-loader.js")
-@JsModule("./networkDiagram-connector-flow.js")
-@JsModule("vis-network/standalone/umd/vis-network.min.js")
-@NpmPackage(value = "vis-network", version = "9.0.5")
+@JsModule("./networkDiagram-connector-flow.ts")
+//@JsModule("./vis-network/9.1.9/vis-network.esm.min.js")
+@NpmPackage(value = "vis-network", version = "9.1.9")
 public class NetworkDiagram extends Component implements HasSize {
 
   Logger log = LoggerFactory.getLogger(NetworkDiagram.class);
@@ -177,7 +176,15 @@ public class NetworkDiagram extends Component implements HasSize {
   @Override
   protected void onAttach(AttachEvent attachEvent) {
     super.onAttach(attachEvent);
+    if (attachEvent.isInitialAttach()) {
+    //  injectVisScript();
+    }
     initConnector();
+  }
+
+  private void injectVisScript() {
+    getUI().get().getPage().addJavaScript(
+            "context://frontend/vis-network/9.1.9/vis-network.min.js");
   }
 
   @Override
