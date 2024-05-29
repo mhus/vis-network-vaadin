@@ -2,6 +2,10 @@
 # Created by https://www.gitignore.io/api/java,maven,vaadin,eclipse
 # Edit at https://www.gitignore.io/?templates=java,maven,vaadin,eclipse
 
+/frontend/generated
+/package-lock.json
+/package.json
+
 ### Eclipse ###
 
 .metadata
